@@ -1,4 +1,7 @@
 
+using ApiScp.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace ApiScp
 {
     public class Program
@@ -13,6 +16,11 @@ namespace ApiScp
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //string de conexão com o bd
+            string sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(sqlConnection));
 
             var app = builder.Build();
 

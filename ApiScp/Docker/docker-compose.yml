@@ -1,0 +1,21 @@
+﻿version: '3.8'
+
+services:
+  postgres:
+     image: postgres:latest
+     container_name: postgres_scp
+     ports:
+        - "5432:5432"
+     environment: 
+        POSTGRES_PASSWORD: "1234"
+     volumes:
+        - ./postgres_data:/var/lib/postgresql/data
+     deploy:
+        resources:
+            limits:
+                memory: 300M
+                cpus: '0.5'
+            reservations:
+                memory: 300M
+                cpus: '0.25'
+    

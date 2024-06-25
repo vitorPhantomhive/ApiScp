@@ -39,10 +39,12 @@ namespace ApiScp.Controllers
         [HttpPost]
         public ActionResult Post(Scp scp)
         {
-            if(scp == null)
-            {
-                return BadRequest();
-            }
+            //Console.WriteLine(scp.ToString());
+
+            //if(scp == null)
+            //{
+            //    return BadRequest();
+            //}
             //adicionando o scp na memória
             _context.Scps.Add(scp);
             //enviando ele para o banco

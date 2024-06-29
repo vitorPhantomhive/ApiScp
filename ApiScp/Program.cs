@@ -25,9 +25,12 @@ namespace ApiScp
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            
+
+            if (false)
+            {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+            }
             
 
             app.UseHttpsRedirection();
